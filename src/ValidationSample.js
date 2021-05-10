@@ -17,21 +17,25 @@ class ValidationSample extends Component {
     handleButtonClick = () => {
         this.setState({
             clicked : true,
-            validated : this.state.password = '0000'
+            validated : this.state.password === '0000'
         })
+        this.superman.focus();
     }
 
     render() {
         return (
             <div>
                 <input
+                    ref={(ref)=>this.superman=ref}
                     type={"password"}
                     value={this.state.password}
-                    onClick={this.handleChange}
-                    className={this.state.clicked?(this.state.validated?'success':'failure'):''}
+                    onChange={this.handleChange}
+                    className={this.state.clicked?(this.state.validated ? 'success':'failure'):''}
                 />
                 <button onClick={this.handleButtonClick}>검증하기</button>
             </div>
         )
     }
 }
+
+export default ValidationSample;
